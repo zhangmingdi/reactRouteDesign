@@ -23,7 +23,13 @@ export default class extends Component {
   render() {
 
     let value = {
-      location: this.state.location
+      location: this.state.location,
+      history: {
+        location: this.state.location,
+        push(to) {
+          window.location.hash = to
+        }
+      }
     }
 
     return (

@@ -4,8 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from './component/Home';
-import Router from './react-router-dom/HashRouter';
-import Route from './react-router-dom/Router';
+import { HashRouter as Router, Route, Link } from './react-router-dom';
 import User from './component/User';
 import Profile from './component/Profile';
 
@@ -15,7 +14,7 @@ import Profile from './component/Profile';
 ReactDOM.render(
   <Router>
     <>
-      {/* <ul>
+      <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -25,7 +24,7 @@ ReactDOM.render(
         <li>
           <Link to="/profile">Profile</Link>
         </li>
-      </ul> */}
+      </ul>
       <Route path="/" component={Home} ></Route>
       <Route path="/user" component={User} ></Route>
       <Route path="/profile" component={Profile} ></Route>
