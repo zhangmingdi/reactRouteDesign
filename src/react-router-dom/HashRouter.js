@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RouterContext from './RouterContext'
+import RouterContext from './RouterContext';
 
 export default class extends Component {
 
@@ -11,10 +11,20 @@ export default class extends Component {
 
   componentDidMount() {
     window.addEventListener('hashchange', e => {
+
+      const hash = window.location.hash.slice(1)
+
+      const index = hash.indexOf("?")
+
+      const pathname = index !== -1 ? hash.slice(0, index) : hash
+      const search = index !== -1 ? hash.slice(index) : ''
+
+      
       this.setState({
         location: {
           ...this.state.location,
-          pathname: window.location.hash.slice(1)
+          pathname,
+          search
         }
       })
     })
@@ -27,7 +37,14 @@ export default class extends Component {
       history: {
         location: this.state.location,
         push(to) {
-          window.location.hash = to
+
+          if (typeof to === 'object') {
+            window.location.hash = to.pathName
+
+          } else {
+            window.location.hash = to
+          }
+
         }
       }
     }

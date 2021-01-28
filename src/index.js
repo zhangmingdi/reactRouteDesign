@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 import Home from './component/Home';
-import { HashRouter as Router, Route, Link } from './react-router-dom';
-import User from './component/User';
 import Profile from './component/Profile';
+import User from './component/User';
+import './index.css';
+import { HashRouter as Router, Link, Route } from './react-router-dom';
+import reportWebVitals from './reportWebVitals';
 
 
 
@@ -19,7 +18,7 @@ ReactDOM.render(
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/user">User</Link>
+          <Link to={{ pathName: "/user", state: { id: 1 } }}>User</Link>
         </li>
         <li>
           <Link to="/profile">Profile</Link>

@@ -1,19 +1,40 @@
-import { render } from '@testing-library/react';
+import { pathToRegexp } from 'path-to-regexp';
 import React, { Component } from 'react';
 import RouterContext from './RouterContext';
 
+export default class extends Component {
 
-export default function (props) {
+  static contextType = RouterContext
 
-  let { component: RouterComponent, path } = props
+  render() {
 
-  return (
-    <RouterContext.Consumer>
-      {({ location }) => {
-        if (location.pathname === path && RouterComponent) return <RouterComponent />
-        return null
-      }}
-    </RouterContext.Consumer>
-  )
+    let { component: RouterComponent, exact = false, path = "/", } = this.props
+    const pathname = this.context.location.pathname
+    const paramsNames = []
+    const regexp = pathToRegexp(path, paramsNames, { exact })
+
+    const isShow = pathname.match(regexp)
+
+    if (isShow) return (
+      <RouterComponent />
+    )
+    return null
+  }
+
 
 }
+
+// export default function (props) {
+
+
+
+//   return (
+//     <RouterContext.Consumer>
+//       {({ location }) => {
+//         if (location.pathname === path && RouterComponent) return <RouterComponent />
+//         return null
+//       }}
+//     </RouterContext.Consumer>
+//   )
+
+// }

@@ -10,17 +10,14 @@ export default class extends Component {
   _handerHash = () => {
 
     this.context.history.push(this.props.to)
-  
+
   }
 
 
   render() {
-
-
     return (
       <a onClick={this._handerHash}>{this.props.children}</a>
     )
-
   }
 
 }
