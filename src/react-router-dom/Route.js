@@ -15,8 +15,13 @@ export default class extends Component {
 
     const isShow = pathname.match(regexp)
 
+    const props = {
+      location: this.context.location,
+      history: this.context.history,
+    }
+
     if (isShow) return (
-      <RouterComponent />
+      <RouterComponent {...props} />
     )
     return null
   }
