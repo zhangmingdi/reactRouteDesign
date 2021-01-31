@@ -22,7 +22,6 @@ export default class HashRouter extends Component {
 
   componentDidMount() {
     window.addEventListener('hashchange', e => {
-
       const hash = window.location.hash.slice(1)
 
       const { pathname, search } = parseHash(hash)

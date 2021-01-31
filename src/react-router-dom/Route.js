@@ -7,19 +7,18 @@ export default class Route extends Component {
   static contextType = RouterContext
 
   render() {
-    // console.log('ssssssssssssssss')
     let { component: RouterComponent, exact = false, path = "/", } = this.props
     const pathname = this.context.location.pathname
     const paramsNames = []
-    const regexp = pathToRegexp(path, paramsNames, { exact })
+    const regexp = pathToRegexp(path, paramsNames, { end: exact })
 
     const isShow = pathname.match(regexp)
+
 
     const props = {
       location: this.context.location,
       history: this.context.history,
     }
-
     if (isShow) return (
       <RouterComponent {...props} />
     )

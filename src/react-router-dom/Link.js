@@ -8,7 +8,6 @@ export default class Link extends Component {
 
 
   _handerHash = () => {
-
     this.context.history.push(this.props.to)
 
   }

@@ -10,7 +10,6 @@ export default class Switch extends Component {
   render() {
 
     let pathname = this.context.location.pathname
-
     if (this.props.children) {
 
       let children = Array.isArray(this.props.children) ? this.props.children : [this.props.children]
