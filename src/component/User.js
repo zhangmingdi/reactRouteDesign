@@ -1,4 +1,4 @@
-import { Link, Route, Switch } from "../react-router-dom"
+import { Link, Route, Switch, NavLink } from "../react-router-dom"
 import RouterContext from "../react-router-dom/RouterContext"
 import UserDetail from "./UserDetail"
 import UserList from "./UserList"
@@ -14,14 +14,14 @@ export default function User() {
     <div>
       <ul>
         <li>
-          <Link to="/user/detail" >user/detail</Link>
+          <NavLink to="/user/detail" >user/detail</NavLink>
 
         </li>
         <li>
-          <Link to="/user/list" >user/list</Link>
+          <NavLink to="/user/list" >user/list</NavLink>
         </li>
         <li>
-          <Link to="/user/add" >user/add</Link>
+          <NavLink to="/user/add" >user/add</NavLink>
         </li>
       </ul>
       <Switch>

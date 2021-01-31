@@ -15,7 +15,7 @@ export default class Link extends Component {
 
   render() {
     return (
-      <a onClick={this._handerHash}>{this.props.children}</a>
+      <a className={this.props.className} onClick={this._handerHash}>{this.props.children}</a>
     )
   }
 

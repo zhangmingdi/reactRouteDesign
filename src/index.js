@@ -4,7 +4,7 @@ import Home from './component/Home';
 import Profile from './component/Profile';
 import User from './component/User';
 import './index.css';
-import { HashRouter as Router, Link, Route, Switch, Redirect } from './react-router-dom';
+import { HashRouter as Router, Link, Route, Switch, Redirect, NavLink } from './react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -15,13 +15,13 @@ ReactDOM.render(
     <>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/home">Home</NavLink>
         </li>
         <li>
-          <Link to="/user">User</Link>
+          <NavLink to="/user">User</NavLink>
         </li>
         <li>
-          <Link to="/profile">Profile</Link>
+          <NavLink to="/profile">Profile</NavLink>
         </li>
       </ul>
       <Switch>
