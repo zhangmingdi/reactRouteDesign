@@ -2,12 +2,12 @@ import { pathToRegexp } from 'path-to-regexp';
 import React, { Component } from 'react';
 import RouterContext from './RouterContext';
 
-export default class extends Component {
+export default class Route extends Component {
 
   static contextType = RouterContext
 
   render() {
-
+    // console.log('ssssssssssssssss')
     let { component: RouterComponent, exact = false, path = "/", } = this.props
     const pathname = this.context.location.pathname
     const paramsNames = []

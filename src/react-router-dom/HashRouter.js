@@ -12,7 +12,7 @@ function parseHash(hash) {
 }
 
 
-export default class extends Component {
+export default class HashRouter extends Component {
 
   state = {
     location: {
@@ -38,7 +38,7 @@ export default class extends Component {
 
 
     window.location.hash = window.location.hash || '/'
-    
+
   }
 
   render() {

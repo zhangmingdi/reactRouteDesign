@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RouterContext from './RouterContext';
 
 
-export default class extends Component {
+export default class Link extends Component {
 
   static contextType = RouterContext
 

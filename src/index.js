@@ -4,7 +4,7 @@ import Home from './component/Home';
 import Profile from './component/Profile';
 import User from './component/User';
 import './index.css';
-import { HashRouter as Router, Link, Route } from './react-router-dom';
+import { HashRouter as Router, Link, Route, Switch, Redirect } from './react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -18,15 +18,19 @@ ReactDOM.render(
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to={{ pathName: "/user", state: { id: 1 } }}>User</Link>
+          <Link to="/user">User</Link>
         </li>
         <li>
           <Link to="/profile">Profile</Link>
         </li>
       </ul>
-      <Route path="/" component={Home} ></Route>
-      <Route path="/user" component={User} ></Route>
-      <Route path="/profile" component={Profile} ></Route>
+      <Switch>
+        <Route exact path="/" component={Home} ></Route>
+        <Route path="/user" component={User} ></Route>
+        <Route path="/profile" component={Profile} ></Route>
+        <Redirect exact from="/home" to="/" />
+      </Switch>
+
     </>
   </Router>,
   document.getElementById('root')
